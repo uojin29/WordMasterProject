@@ -1,5 +1,7 @@
 # WordMasterProject
 
+## intelli J 실행화면
+
 
 ## 실행화면 1 단어 추가
 
