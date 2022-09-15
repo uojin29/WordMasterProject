@@ -36,6 +36,7 @@ public class WordManager {
             }
             else if(menu == 2) {
                 //수준별
+                wordCRUD.levelSearch();
             }
             else if(menu == 3) {
                 //검색
