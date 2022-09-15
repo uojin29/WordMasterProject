@@ -45,6 +45,7 @@ public class WordManager {
             }
             else if(menu == 5) {
                 //수정
+                wordCRUD.updateWord();
             }
             else if(menu == 6) {
                 //삭제
