@@ -1,9 +1,14 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WordCRUD implements ICRUD{
     ArrayList<Word> list;
     Scanner s;
+    final String fname = "Dictionary.txt";
 
     WordCRUD(Scanner s){
         list = new ArrayList<>();
@@ -62,12 +67,12 @@ public class WordCRUD implements ICRUD{
         System.out.println("--------------------------------");
         for(int i = 0; i < list.size(); i++) {
             String word = list.get(i).getWord();
-            if(word.contains(searchWord)) {
-                idlist.add(i);
-                System.out.print((i + 1) + " ");
-                System.out.println(list.get(i).toString());
-                j++;
-            }
+            if(!word.contains(searchWord)) continue;
+            System.out.print((j + 1) + " ");
+            System.out.println(list.get(i).toString());
+            idlist.add(i);
+            j++;
+
         }
         System.out.println("--------------------------------");
         return idlist;
@@ -85,6 +90,47 @@ public class WordCRUD implements ICRUD{
 
         Word word = list.get(idlist.get(num - 1));
         word.setMeaning(meaning);
+
         System.out.println("단어가 수정되었습니다.");
+    }
+
+    public void deleteWord() {
+        System.out.println("=> 삭제할 단어 검색: ");
+        String searchWord = s.next();
+        ArrayList<Integer> idlist = this.listAll(searchWord);
+        System.out.println("=> 삭제할 번호 선택: ");
+        int num = s.nextInt();
+        s.nextLine();
+        System.out.println("정말로 삭제하시겠습니까?(y/n) ");
+        String ans = s.nextLine();
+
+
+        if(ans.equalsIgnoreCase("y")){
+            list.remove((int)idlist.get(num - 1));
+            System.out.println("단어가 삭제되었습니다.");
+        }
+        else System.out.println("취소되었습니다.");
+    }
+
+    public void loadFile(){
+        try {
+            int count = 0;
+            BufferedReader br = new BufferedReader(new FileReader(fname));
+            while (true) {
+                String line;
+                line = br.readLine();
+                if(line == null) break;
+                String[] data = line.split("\\|");
+                int level = Integer.parseInt(data[0]);
+                String word = data[1];
+                String meaning = data[2];
+                list.add(new Word(0, level, word, meaning));
+                count++;
+            }
+            br.close();
+            System.out.println("=>" + count + " 개 로딩 완료.");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
