@@ -40,6 +40,7 @@ public class WordManager {
             }
             else if(menu == 3) {
                 //검색
+                wordCRUD.search();
             }
             else if(menu == 4) {
                 //추가
