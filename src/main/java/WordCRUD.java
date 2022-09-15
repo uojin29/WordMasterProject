@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -129,6 +126,19 @@ public class WordCRUD implements ICRUD{
             }
             br.close();
             System.out.println("=>" + count + " 개 로딩 완료.");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void saveFile() {
+        try {
+            PrintWriter pw = new PrintWriter(new FileWriter(fname));
+            for(Word one : list){
+                pw.write(one.toSaveString() + "\n");
+            }
+            pw.close();
+            System.out.println("=> 파일 저장 완료.");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

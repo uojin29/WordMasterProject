@@ -53,4 +53,7 @@ public class Word {
 
         return str;
     }
+    public String toSaveString(){
+        return this.level + "|" + this.word + "|" + this.meaning;
+    }
 }

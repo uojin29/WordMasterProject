@@ -54,6 +54,7 @@ public class WordManager {
             }
             else if(menu == 7) {
                 //저장
+                wordCRUD.saveFile();
             }
         }
         System.out.println("종료되었습니다");
