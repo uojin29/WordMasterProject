@@ -14,4 +14,4 @@
 
 
 ## 실행화면 4 레벨로 검색
-<img src="[https://github.com/uojin29/WordMasterProject/blob/master/screenshot/image.png](https://github.com/uojin29/WordMasterProject/blob/master/screenshot/image.png)"/>
+<img src="https://github.com/uojin29/WordMasterProject/blob/master/screenshot/image.png"/>
