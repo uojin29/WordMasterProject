@@ -30,6 +30,5 @@
 
 ## 실행화면 9 불러오기
 <img src="https://github.com/uojin29/WordMasterProject/blob/master/screenshot/loadFile.png"/>
-
-<img src="https://github.com/uojin29/WordMasterProject/blob/master/screenshot/allFile.png/>
+<img src="https://github.com/uojin29/WordMasterProject/blob/master/screenshot/allFile.png"/>
 
