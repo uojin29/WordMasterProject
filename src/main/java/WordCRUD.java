@@ -88,6 +88,11 @@ public class WordCRUD implements ICRUD{
         System.out.println("--------------------------------");
         return idlist;
     }
+//listAll을 overloading해서 같은 이름과 비슷한 기능을 가진 함수를 여러 개 만든 것.
+// 파라미터로 다른 값을 주어 각기 상황에 사용
+//override vs overload
+//override => 상속받은 메소드의 내용을 변경
+//overload => 이름은 같지만 시그니처(파라미터 수, 타입)는 다른 메소드를 중복으로 선언하는 것
 
     public void updateWord() {
         System.out.println("=> 수정할 단어 검색: ");
@@ -100,6 +105,8 @@ public class WordCRUD implements ICRUD{
         String meaning = s.nextLine();
 
         Word word = list.get(idlist.get(num - 1));
+        //list의 index를 입력받은 숫자로 바로 바꾸는 것이 아니라 idlist로 접근하여 index를 바꾸어야 한다.
+        //이 부분을 제대로 인지하지 못해 계속 오류가 남
         word.setMeaning(meaning);
         System.out.println("단어가 수정되었습니다.");
     }
@@ -125,6 +132,7 @@ public class WordCRUD implements ICRUD{
         try {
             int count = 0;
             BufferedReader br = new BufferedReader(new FileReader(fname));
+            //BufferedReader, FileReader
             while (true) {
                 String line;
                 line = br.readLine();
@@ -146,6 +154,9 @@ public class WordCRUD implements ICRUD{
     public void saveFile() {
         try {
             PrintWriter pw = new PrintWriter(new FileWriter(fname));
+            //PrintWriter, FileWriter
+            //왜 강의에서 여기는 BufferedWriter를 사용하지 않는 걸까 => BufferedWriter는 파라미터로 Writer만 받지만
+            //PrintWriter는 File(String), OutputStream, Writer등을 받음.
             for(Word one : list){
                 pw.write(one.toSaveString() + "\n");
             }
