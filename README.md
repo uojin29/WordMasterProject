@@ -32,5 +32,6 @@
 <img src="https://github.com/uojin29/WordMasterProject/blob/master/screenshot/loadFile.png"/>
 <img src="https://github.com/uojin29/WordMasterProject/blob/master/screenshot/allFile.png"/>
 
-## 실행화면 파일
+## 실행화면 파일 위치 & 내용
+<img src="https://github.com/uojin29/WordMasterProject/blob/master/screenshot/file.png"/>
 <img src="https://github.com/uojin29/WordMasterProject/blob/master/screenshot/Dictionary.png"/>
