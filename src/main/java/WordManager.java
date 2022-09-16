@@ -59,7 +59,7 @@ public class WordManager {
                 wordCRUD.saveFile();
             }
         }
-        System.out.println("종료되었습니다");
+        System.out.println("종료되었습니다.");
     }
 
 
